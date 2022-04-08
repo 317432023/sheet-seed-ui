@@ -12,10 +12,10 @@ module.exports = defineConfig({
     // http 代理配置
     proxy: {
       '/server': { // 1、'/server' 本身代表http//localhost:${port}/server
-        target: 'http://127.0.0.1:8080/server', // 2、target将http//localhost:${port}/server指向'http://127.0.0.1:8080/server'
+        target: 'http://127.0.0.1:8080/server', // 2、target将http//localhost:${port}/server/xxx指向'http://127.0.0.1:8080/server/server/xxx'
         changeOrigin: true,
         pathRewrite: {
-          '^/server': '' // 3、pathRewrite: {'^/server' : ''}又把http//localhost:${port}/server后面的server去除了
+          '^/server': '' // 3、pathRewrite: {'^/server' : ''}又把http//localhost:${port}/server/server/xxx后面的server去除了变成http://127.0.0.1:8080/server/xxx
         }
       },
     },
